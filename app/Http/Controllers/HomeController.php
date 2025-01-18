@@ -52,7 +52,7 @@ class HomeController extends Controller
         $galeri = Galeri::all();
         $slider = Slider::all();
         $alasan = Alasan::all();
-        $berita = Berita::with('kategoriBerita')->orderBy('id', 'desc')->paginate(2); // Gunakan paginate di sini
+        $berita = Berita::with('kategoriBerita')->orderBy('id', 'desc')->paginate(1); // Gunakan paginate di sini
         return view('front.home', compact('slider', 'title', 'subtitle', 'berita', 'alasan'));
     }
 
