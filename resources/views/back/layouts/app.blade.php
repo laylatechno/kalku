@@ -360,15 +360,7 @@
                                 </p>
                             </a>
                         </li> --}}
-                        <li class="nav-item">
-                            <a href="/hasil_hitung" class="nav-link <?php echo $currentPath == '/hasil_hitung' ? 'active' : ''; ?>">
-                                <i class="nav-icon fas fa-shopping-bag"></i>
-
-                                <p>
-                                    Hasil Hitung
-                                </p>
-                            </a>
-                        </li>
+                      
                         <li class="nav-item">
                             <a href="/data_kpsp" class="nav-link <?php echo $currentPath == '/data_kpsp' ? 'active' : ''; ?>">
                                 <i class="nav-icon fas fa-shopping-cart"></i>
@@ -378,6 +370,25 @@
                                 </p>
                             </a>
                         </li>  
+                        <li class="nav-item">
+                            <a href="/hasil_hitung" class="nav-link <?php echo $currentPath == '/hasil_hitung' ? 'active' : ''; ?>">
+                                <i class="nav-icon fas fa-shopping-bag"></i>
+
+                                <p>
+                                    Hasil Hitung Gizi
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/hasil_kpsp" class="nav-link <?php echo $currentPath == '/hasil_kpsp' ? 'active' : ''; ?>">
+                                <i class="nav-icon fas fa-calculator"></i>
+
+                                <p>
+                                    Hasil Hitung KPSP
+                                </p>
+                            </a>
+                        </li>
 
 
 
