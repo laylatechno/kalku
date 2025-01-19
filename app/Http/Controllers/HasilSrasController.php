@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\LogHistori;
-use Illuminate\Support\Facades\Hash;
-use App\Models\HasilHitung;
+use App\Models\HasilSras;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
  
 
-class HasilHitungController extends Controller
+class HasilSrasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,14 +17,11 @@ class HasilHitungController extends Controller
      */
     public function index()
     {
-        $title = "Halaman Hasil Hitung";
-        $subtitle = "Menu Hasil Hitung";
-        $hasil_hitung = HasilHitung::all();
-        // $hasil_hitung = Cache::remember('hasil_hitung', 60, function () {
-        //     return HasilHitung::all();
-        // });
-
-        return view('back.hasil_hitung.index', compact('title', 'subtitle', 'hasil_hitung'));
+        $title = "Halaman Hasil SRAS";
+        $subtitle = "Menu Hasil SRAS";
+        $hasil_sras = HasilSras::all();
+    
+        return view('back.hasil_sras.index', compact('title', 'subtitle', 'hasil_sras'));
     }
     /**
      * Show the form for creating a new resource.
@@ -38,7 +34,7 @@ class HasilHitungController extends Controller
 
     public function store(Request $request)
     {
-        
+       
     }
 
 
@@ -63,9 +59,9 @@ class HasilHitungController extends Controller
      */
     public function edit($id)
     {
-        $hasil_hitung = HasilHitung::findOrFail($id);
+        $hasil_sras = HasilSras::findOrFail($id);
 
-        return response()->json($hasil_hitung);
+        return response()->json($hasil_sras);
     }
 
     /**
@@ -90,7 +86,7 @@ class HasilHitungController extends Controller
      */
     public function destroy($id)
     {
-        $hasil_hitung = HasilHitung::find($id);
+        $hasil_hitung = HasilSras::find($id);
 
         if (!$hasil_hitung) {
             return response()->json(['message' => 'Data hasil_hitung not found'], 404);
@@ -104,10 +100,10 @@ class HasilHitungController extends Controller
         }
 
         $hasil_hitung->delete();
-        $loggedInHasilHitungId = Auth::id();
+        $loggedInHasilSrasId = Auth::id();
 
         // Simpan log histori untuk operasi Delete dengan user_id yang sedang login dan informasi data yang dihapus
-        $this->simpanLogHistori('Delete', 'Hasil Hitung', $id, $loggedInHasilHitungId, json_encode($hasil_hitung), null);
+        $this->simpanLogHistori('Delete', 'Hasil Hitung', $id, $loggedInHasilSrasId, json_encode($hasil_hitung), null);
 
         return response()->json(['message' => 'Data Berhasil Dihapus']);
     }

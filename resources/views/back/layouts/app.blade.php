@@ -389,6 +389,15 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/hasil_sras" class="nav-link <?php echo $currentPath == '/hasil_sras' ? 'active' : ''; ?>">
+                                <i class="nav-icon fas fa-calculator"></i>
+
+                                <p>
+                                    Hasil Hitung SRAS
+                                </p>
+                            </a>
+                        </li>
 
 
 

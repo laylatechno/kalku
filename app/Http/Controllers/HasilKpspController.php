@@ -34,30 +34,7 @@ class HasilKpspController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'nama_hasil_hitung' => 'required|unique:hasil_hitung,nama_hasil_hitung', // Nama kategori berita harus unik
-            'urutan' => 'integer', // Validasi angka
-        ], [
-            'nama_hasil_hitung.required' => 'Nama Hasil Hitung Wajib diisi',
-            'nama_hasil_hitung.unique' => 'Nama Hasil Hitung sudah terdaftar',
-            'urutan.integer' => 'Urutan harus berupa angka',
-        ]);
-        
-
-
-        $input = $request->all();
-
-
-        // Membuat user baru dan mendapatkan data pengguna yang baru dibuat
-        $user = HasilKpsp::create($input);
-
-        // Mendapatkan ID pengguna yang sedang login
-        $loggedInHasilKpspId = Auth::id();
-
-        // Simpan log histori untuk operasi Create dengan user_id yang sedang login
-        $this->simpanLogHistori('Create', 'Hasil Hitung', $user->id, $loggedInHasilKpspId, null, json_encode($user));
-
-        return redirect('/hasil_hitung')->with('message', 'Data berhasil ditambahkan');
+       
     }
 
 
@@ -98,27 +75,7 @@ class HasilKpspController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Validasi input
-        $request->validate([
-            'nama_hasil_hitung' => 'required', // Nama kategori berita harus unik
-            'urutan' => 'integer', // Validasi angka
-        ], [
-            'nama_hasil_hitung.required' => 'Nama Hasil Hitung Wajib diisi',
-            'urutan.integer' => 'Urutan harus berupa angka',
-        ]);
-        // Ambil data user yang akan diupdate
-        $hasil_hitung = HasilKpsp::findOrFail($id);
-
-        $input = $request->all();
-    
-        // Mendapatkan ID pengguna yang sedang login
-        $loggedInUserId = Auth::id();
-    
-        // Simpan log histori untuk operasi Update dengan user_id yang sedang login
-        $this->simpanLogHistori('Update', 'Hasil Hitung', $hasil_hitung->id, $loggedInUserId, json_encode($hasil_hitung), json_encode($input));
-    
-        $hasil_hitung->update($input);
-        return response()->json(['message' => 'Data berhasil diupdate']);
+        
     }
 
     /**

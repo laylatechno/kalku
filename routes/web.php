@@ -18,6 +18,7 @@ use App\Http\Controllers\BbuController;
 use App\Http\Controllers\GiziController;
 use App\Http\Controllers\HasilHitungController;
 use App\Http\Controllers\HasilKpspController;
+use App\Http\Controllers\HasilSrasController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImtController;
 use App\Http\Controllers\KpspController;
@@ -119,6 +120,7 @@ Route::middleware(['auth'])->group(function () {
     // Hasil Hitung
     Route::resource('hasil_hitung', HasilHitungController::class);
     Route::resource('hasil_kpsp', HasilKpspController::class);
+    Route::resource('hasil_sras', HasilSrasController::class);
 
      // Data Pertanyaan
      Route::resource('data_kpsp', KpspController::class);
