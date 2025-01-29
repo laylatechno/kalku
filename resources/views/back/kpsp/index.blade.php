@@ -21,7 +21,6 @@
                                 <th>No</th>
                                 <th>Umur</th>
                                 <th>Pertanyaan</th>
-                                <th>Pertanyaan</th>
                                 <th>Warna</th>
                                 <th width="10%">Gambar</th>
                                 <th width="15%">Aksi</th>
@@ -35,7 +34,6 @@
                                 <tr>
                                     <td>{{ $i }}</td>
                                     <td>{{ $p->umur }}</td>
-                                    <td>{{ $p->pertanyaan }}</td>
                                     <td>{{ $p->pertanyaan }}</td>
                                     <td>{{ $p->warna }}</td>
                                     
