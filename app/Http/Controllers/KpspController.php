@@ -15,12 +15,14 @@ class KpspController extends Controller
     {
         $title = "Halaman Kpsp";
         $subtitle = "Menu Kpsp";
-        
+    
         $kpsp = Cache::remember('kpsp', 10, function () {
-            return Kpsp::all();
+            return Kpsp::orderBy('id', 'desc')->get();
         });
+    
         return view('back.kpsp.index', compact('title', 'subtitle', 'kpsp'));
     }
+    
   
     /**
      * Show the form for creating a new resource.
@@ -39,11 +41,10 @@ class KpspController extends Controller
         $request->validate([
             'umur' => 'required ',
             'pertanyaan' => 'required ',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi file gambar
+            'gambar' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi file gambar
         ], [
             'umur.required' => 'Umur wajib diisi.',
             'pertanyaan.required' => 'Pertanyaan wajib diisi.',
-            'gambar.required' => 'Gambar wajib diisi.',
             'gambar.image' => 'Gambar harus dalam format jpeg, jpg, atau png',
             'gambar.mimes' => 'Format gambar harus jpeg, jpg, atau png',
             'gambar.max' => 'Ukuran gambar tidak boleh lebih dari 6 MB',
@@ -169,11 +170,10 @@ class KpspController extends Controller
         $request->validate([
             'umur' => 'required ',
             'pertanyaan' => 'required ',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi file gambar
+            'gambar' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi file gambar
         ], [
             'umur.required' => 'Umur wajib diisi.',
             'pertanyaan.required' => 'Pertanyaan wajib diisi.',
-            'gambar.required' => 'Gambar wajib diisi.',
             'gambar.image' => 'Gambar harus dalam format jpeg, jpg, atau png',
             'gambar.mimes' => 'Format gambar harus jpeg, jpg, atau png',
             'gambar.max' => 'Ukuran gambar tidak boleh lebih dari 6 MB',
