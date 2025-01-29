@@ -119,7 +119,7 @@
                                         <div class="form-group">
                                             <label for="gambar">Gambar Kpsp</label>
                                             <input type="file" class="form-control" name="gambar" id="gambar"
-                                                onchange="previewImage()" required>
+                                                onchange="previewImage()">
                                             <canvas id="preview_canvas"
                                                 style="display: none; max-width: 100%; margin-top: 10px;"></canvas>
                                             <img id="preview_image" src="#" alt="Preview Gambar"
