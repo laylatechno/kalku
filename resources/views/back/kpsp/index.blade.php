@@ -101,7 +101,7 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="umur">Umur</label>
-                                            <input type="text" class="form-control" id="umur" name="umur"
+                                            <input type="number" class="form-control" id="umur" name="umur"
                                                 placeholder="Masukkan Umur" required>
                                         </div>
                                     </div>
@@ -241,7 +241,7 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="umur_edit">Umur</label>
-                                            <input type="text" class="form-control" id="umur_edit" name="umur"
+                                            <input type="number" class="form-control" id="umur_edit" name="umur"
                                                 placeholder="Masukkan Umur" required>
                                         </div>
                                     </div>
