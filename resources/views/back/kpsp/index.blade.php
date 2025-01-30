@@ -387,8 +387,7 @@
             var formData = new FormData(this);
 
             $.ajax({
-                url: '{{ route('
-                data_kpsp.store ') }}',
+                url: '{{ route('data_kpsp.store') }}',
                 type: 'POST',
                 data: formData,
                 processData: false, // Menghindari jQuery memproses data
