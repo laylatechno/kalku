@@ -28,6 +28,7 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\HtmlMinifier;
 
 // Redirect Home jika dia Guest
 Route::get('/home', function () {
@@ -35,27 +36,28 @@ Route::get('/home', function () {
 });
 
 
+Route::middleware([HtmlMinifier::class])->group(function () {
+    Route::get('/', [HomeController::class, 'index']);
+    Route::get('/edunika', [HomeController::class, 'edunika']);
+    Route::get('/info', [HomeController::class, 'info']);
 
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/edunika', [HomeController::class, 'edunika']);
-Route::get('/info', [HomeController::class, 'info']);
+    Route::get('/kpsp', [HomeController::class, 'kpsp'])->name('kpsp');
+    Route::get('/kpsp/{umur}', [HomeController::class, 'getKuesionerByUmur']);
+    Route::post('/hasil-kpsp', [HomeController::class, 'hasil_kpsp'])->name('home.hasil_kpsp');
+    Route::get('/hasil-kpsp/{id}', [HomeController::class, 'show_hasil_kpsp'])->name('show.hasil_kpsp');
 
-Route::get('/kpsp', [HomeController::class, 'kpsp'])->name('kpsp');
-Route::get('/kpsp/{umur}', [HomeController::class, 'getKuesionerByUmur']);
-Route::post('/hasil-kpsp', [HomeController::class, 'hasil_kpsp'])->name('home.hasil_kpsp');
-Route::get('/hasil-kpsp/{id}', [HomeController::class, 'show_hasil_kpsp'])->name('show.hasil_kpsp');
-
-Route::get('/sras', [HomeController::class, 'sras'])->name('sras');
-Route::post('/hasil-sras', [HomeController::class, 'hasil_sras'])->name('home.hasil_sras');
+    Route::get('/sras', [HomeController::class, 'sras'])->name('sras');
+    Route::post('/hasil-sras', [HomeController::class, 'hasil_sras'])->name('home.hasil_sras');
 
 
-Route::get('/edunika/{slug}', [HomeController::class, 'edunika_detail'])->name('edunika.edunika_detail');
-Route::get('/video_kalkulating', [HomeController::class, 'video']);
-Route::get('/galeri_pengguna', [HomeController::class, 'galeri_pengguna']);
+    Route::get('/edunika/{slug}', [HomeController::class, 'edunika_detail'])->name('edunika.edunika_detail');
+    Route::get('/video_kalkulating', [HomeController::class, 'video']);
+    Route::get('/galeri_pengguna', [HomeController::class, 'galeri_pengguna']);
 
-// Halaman Depan Isi Gizi
-Route::get('/hitung_gizi', [HomeController::class, 'hitung_gizi'])->name('hitung_gizi');
-Route::post('/proses_gizi', [GiziController::class, 'determineStatus'])->name('proses_gizi.determine');
+    // Halaman Depan Isi Gizi
+    Route::get('/hitung_gizi', [HomeController::class, 'hitung_gizi'])->name('hitung_gizi');
+    Route::post('/proses_gizi', [GiziController::class, 'determineStatus'])->name('proses_gizi.determine');
+});
 
 
 Route::middleware(['guest'])->group(function () {
@@ -122,8 +124,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('hasil_kpsp', HasilKpspController::class);
     Route::resource('hasil_sras', HasilSrasController::class);
 
-     // Data Pertanyaan
-     Route::resource('data_kpsp', KpspController::class);
+    // Data Pertanyaan
+    Route::resource('data_kpsp', KpspController::class);
 
     // Bbu
     Route::resource('bbu', BbuController::class);
@@ -135,7 +137,7 @@ Route::middleware(['auth'])->group(function () {
     // Bbptu
     Route::resource('bbptu', BbptuController::class);
     Route::post('/bbptu/import', [BbptuController::class, 'import'])->name('bbptu.import');
-    
+
     // Bbptu
     Route::resource('imt', ImtController::class);
     Route::post('/imt/import', [ImtController::class, 'import'])->name('imt.import');
