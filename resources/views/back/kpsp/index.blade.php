@@ -21,6 +21,7 @@
                                 <th>No</th>
                                 <th>Umur</th>
                                 <th>Pertanyaan</th>
+                                <th>Kategori</th>
                                 <th>Warna</th>
                                 <th width="10%">Gambar</th>
                                 <th width="15%">Aksi</th>
@@ -35,6 +36,7 @@
                                     <td>{{ $i }}</td>
                                     <td>{{ $p->umur }}</td>
                                     <td>{{ $p->pertanyaan }}</td>
+                                    <td>{{ $p->kategori }}</td>
                                     <td>{{ $p->warna }}</td>
                                     
                                     <td><a href="/upload/kpsp/{{ $p->gambar }}" target="_blank"><img
