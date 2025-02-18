@@ -53,7 +53,7 @@
 
 
 
-<div class="pt-3"></div>
+<!-- <div class="pt-3"></div>
 
 <div class="container direction-rtl">
     <div class="card">
@@ -73,7 +73,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <div class="pb-3"></div>
 
 
@@ -130,8 +130,8 @@
                 </div>
             </div>
             @endforeach
+            
             <a class="btn btn-success" href="{{ $whatsapp_url }}"><i class="bi bi-whatsapp"></i> Konsultasi Gratis</a>
-
 
 
 
@@ -142,10 +142,9 @@
 
 </div>
 
+ 
 
-
-
-<div class="container">
+<div class="container" style="margin-top: -40px;">
     <div class="card image-gallery-card direction-rtl">
         <div class="card-body">
 
