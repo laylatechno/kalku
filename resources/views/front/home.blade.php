@@ -25,7 +25,7 @@
             @foreach ($slider as $p)
                 <!-- Single Hero Slide -->
                 <div>
-                    <div class="single-hero-slide bg-overlay"
+                    <div class="single-hero-slide"
                         style="background-image: url('/upload/slider/{{ $p->gambar }}')">
                         <div class="h-100 d-flex align-items-center text-center">
                             <div class="container">
@@ -67,7 +67,7 @@
 
 
     <div class="container">
-        <div class="card card-bg-img bg-img bg-overlay "
+        <div class="card card-bg-img bg-img"
             style="background-image: url('/upload/profil/{{ $profil->gambar }}')">
             <div class="card-body direction-rtl p-4">
                 <img src="/upload/profil/{{ $profil->logo }}" alt="" width="20%" height="auto">

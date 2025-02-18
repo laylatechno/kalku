@@ -27,6 +27,7 @@
                                 <th>TB/U</th>
                                 <th>BB/TB</th>
                                 <th>IMT</th>
+                                <th>Puskesmas</th>
                                 <th width="15%">Aksi</th>
                             </tr>
                         </thead>
@@ -45,6 +46,7 @@
                                     <td>{{ $p->result_tb_u }}</td> <!-- TB/U -->
                                     <td>{{ $p->result_bb_tb }}</td> <!-- BB/TB -->
                                     <td>{{ $p->result_imt }}</td> <!-- IMT -->
+                                    <td>{{ $p->wilayah_kerja_puskesmas }}</td> 
                                     <td>
                                         <a href="#" class="btn btn-sm btn-warning btn-edit" data-toggle="modal"
                                             data-target="#modal-edit" data-id="{{ $p->id }}" style="color: black">
